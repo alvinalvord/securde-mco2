@@ -1,130 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3c7e509-12b2-43bd-ae92-590698b95d4d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/built-jar.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/.netbeans_automatic_build" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/.netbeans_update_resources" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/Controller/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/Controller/SQLite.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/Model/History.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/Model/Logs.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/Model/Product.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/Model/User.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/AdminHome$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/AdminHome$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/AdminHome$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/AdminHome$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/AdminHome.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/AdminHome.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/ClientHome$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/ClientHome$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/ClientHome$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/ClientHome$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/ClientHome.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/ClientHome.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Frame$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Frame$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Frame$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Frame$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Frame$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Frame.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Frame.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Home.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Home.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Login$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Login$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Login.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Login.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/ManagerHome$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/ManagerHome$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/ManagerHome$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/ManagerHome$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/ManagerHome.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/ManagerHome.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtHistory$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtHistory$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtHistory$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtHistory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtHistory.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtLogs$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtLogs$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtLogs$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtLogs.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtLogs.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtProduct$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtProduct$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtProduct$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtProduct$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtProduct$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtProduct.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtProduct.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtUser$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtUser$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtUser$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtUser$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtUser$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtUser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtUser.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Register$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Register$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Register.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Register.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/StaffHome$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/StaffHome$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/StaffHome$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/StaffHome$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/StaffHome.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/StaffHome.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/database.db" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/dist/README.TXT" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/dist/SECURDE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/dist/lib/sqlite-jdbc-3.23.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/manifest.mf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/nbproject/build-impl.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/nbproject/genfiles.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/nbproject/private/config.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/nbproject/private/private.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/nbproject/private/private.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/nbproject/project.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/nbproject/project.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/sqldiff.exe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/sqlite-jdbc-3.23.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/sqlite3.exe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/sqlite3_analyzer.exe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/Controller/Main.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/Controller/SQLite.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/Model/History.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/Model/Logs.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/Model/Product.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/Model/User.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/AdminHome.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/AdminHome.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/ClientHome.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/ClientHome.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/Frame.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/Frame.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/Home.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/Home.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/Login.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/Login.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/ManagerHome.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/ManagerHome.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/MgmtHistory.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/MgmtHistory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/MgmtLogs.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/MgmtLogs.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/MgmtProduct.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/MgmtProduct.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/MgmtUser.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/MgmtUser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/Register.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/Register.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/StaffHome.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/StaffHome.java" afterPath="" />
-    </list>
+    <list default="true" id="b3c7e509-12b2-43bd-ae92-590698b95d4d" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -217,6 +94,29 @@
             <path>
               <item name="securde_mco2" type="b2602c69:ProjectViewProjectNode" />
               <item name="securde-mco2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="securde_mco2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="securde-mco2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="securde_mco2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="securde-mco2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="securde_mco2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="securde-mco2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="securde_mco2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="securde-mco2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="securde_mco2" type="b2602c69:ProjectViewProjectNode" />
@@ -344,16 +244,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1554207514138</updated>
-      <workItem from="1554207515296" duration="294000" />
+      <workItem from="1554207515296" duration="417000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="294000" />
+    <option name="totallyTimeSpent" value="417000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="207" y="48" width="1484" height="951" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -369,7 +268,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="ANTLR Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />

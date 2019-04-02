@@ -1,5 +1,2 @@
-
-SECURDE MP/.idea/modules.xml
-SECURDE MP/.idea/SECURDE MP.iml
-SECURDE MP/.idea/vcs.xml
-SECURDE MP/.idea/workspace.xml
+**/out
+**/.idea

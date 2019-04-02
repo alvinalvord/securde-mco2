@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b3c7e509-12b2-43bd-ae92-590698b95d4d" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/built-jar.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/.netbeans_automatic_build" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/.netbeans_update_resources" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/Controller/Main.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/Controller/SQLite.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/Model/History.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/Model/Logs.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/Model/Product.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/Model/User.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/AdminHome$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/AdminHome$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/AdminHome$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/AdminHome$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/AdminHome.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/AdminHome.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/ClientHome$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/ClientHome$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/ClientHome$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/ClientHome$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/ClientHome.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/ClientHome.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Frame$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Frame$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Frame$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Frame$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Frame$5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Frame.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Frame.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Home.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Home.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Login$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Login$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Login.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Login.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/ManagerHome$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/ManagerHome$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/ManagerHome$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/ManagerHome$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/ManagerHome.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/ManagerHome.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtHistory$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtHistory$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtHistory$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtHistory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtHistory.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtLogs$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtLogs$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtLogs$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtLogs.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtLogs.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtProduct$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtProduct$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtProduct$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtProduct$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtProduct$5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtProduct.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtProduct.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtUser$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtUser$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtUser$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtUser$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtUser$5.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtUser.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/MgmtUser.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Register$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Register$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Register.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/Register.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/StaffHome$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/StaffHome$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/StaffHome$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/StaffHome$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/StaffHome.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/build/classes/View/StaffHome.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/database.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/dist/README.TXT" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/dist/SECURDE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/dist/lib/sqlite-jdbc-3.23.1.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/manifest.mf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/nbproject/build-impl.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/nbproject/genfiles.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/nbproject/private/config.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/nbproject/private/private.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/nbproject/private/private.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/nbproject/project.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/nbproject/project.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/sqldiff.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/sqlite-jdbc-3.23.1.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/sqlite3.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/sqlite3_analyzer.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/Controller/Main.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/Controller/SQLite.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/Model/History.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/Model/Logs.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/Model/Product.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/Model/User.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/AdminHome.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/AdminHome.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/ClientHome.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/ClientHome.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/Frame.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/Frame.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/Home.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/Home.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/Login.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/Login.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/ManagerHome.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/ManagerHome.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/MgmtHistory.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/MgmtHistory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/MgmtLogs.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/MgmtLogs.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/MgmtProduct.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/MgmtProduct.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/MgmtUser.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/MgmtUser.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/Register.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/Register.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/StaffHome.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SECURDE MP/src/View/StaffHome.java" afterPath="" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="securde_mco2.iml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/securde_mco2.iml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="19" column="9" lean-forward="false" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="207" />
+    <option name="y" value="48" />
+    <option name="width" value="1484" />
+    <option name="height" value="951" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Android</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="securde_mco2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="securde-mco2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="securde_mco2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="nodejs_interpreter_path" value="D:/Program Files/NodeJS/node" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/sqlite-jdbc-3.23.1.jar!/" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b3c7e509-12b2-43bd-ae92-590698b95d4d" name="Default" comment="" />
+      <created>1554207514138</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1554207514138</updated>
+      <workItem from="1554207515296" duration="294000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="294000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="207" y="48" width="1484" height="951" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32923833" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="ANTLR Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/securde_mco2.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="19" column="9" lean-forward="false" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>securde_mco2</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

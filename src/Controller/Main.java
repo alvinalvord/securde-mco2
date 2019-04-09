@@ -1,10 +1,7 @@
 package Controller;
 
 
-import Model.History;
-import Model.Logs;
-import Model.Product;
-import Model.User;
+import Model.*;
 import View.Frame;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -15,6 +12,7 @@ import java.util.Date;
 public class Main {
     
     public SQLite sqlite;
+    public UserModel model;
     
     public static void main(String[] args) {
         new Main().init();
@@ -23,6 +21,7 @@ public class Main {
     public void init(){
         // Initialize a driver object
         sqlite = new SQLite();
+        model = new UserModel ();
 
 //        // Create a database
 //        sqlite.createNewDatabase();

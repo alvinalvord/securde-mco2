@@ -188,25 +188,46 @@ public class MgmtUser extends javax.swing.JPanel {
 
     private void editRoleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editRoleBtnActionPerformed
         if(table.getSelectedRow() >= 0){
-            System.out.println (tableModel.getValueAt (table.getSelectedRow (), 2));
+            //System.out.println (tableModel.getValueAt (table.getSelectedRow (), 2));
+            if (((String) tableModel.getValueAt(table.getSelectedRow(), 0)).equalsIgnoreCase (Main.getInstance ().model
+                    .getUser ().getUsername ())) {
+                JOptionPane.showMessageDialog (this, "Cannot set own rank", "Rank error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
 
             String[] options = {"1-DISABLED","2-CLIENT","3-STAFF","4-MANAGER","5-ADMIN"};
-            JComboBox optionList = new JComboBox(options);
+            String[] actualoptions = new String[Main.getInstance ().model.getUser ().getRole () - 1];
+            for (int i = 0; i < actualoptions.length; i++) {
+                actualoptions[i] = options[i];
+            }
+            JComboBox optionList = new JComboBox(actualoptions);
             
-            optionList.setSelectedIndex((int)tableModel.getValueAt(table.getSelectedRow(), 2) - 1);
+            optionList.setSelectedIndex(actualoptions.length - 1);
             
             String result = (String) JOptionPane.showInputDialog(null, "USER: " + tableModel.getValueAt(table.getSelectedRow(), 0), 
-                "EDIT USER ROLE", JOptionPane.QUESTION_MESSAGE, null, options, options[(int)tableModel.getValueAt(table.getSelectedRow(), 2) - 1]);
+                "EDIT USER ROLE", JOptionPane.QUESTION_MESSAGE, null, actualoptions, actualoptions[actualoptions.length - 1]);
             
             if(result != null){
-                System.out.println(tableModel.getValueAt(table.getSelectedRow(), 0));
-                System.out.println(result.charAt(0));
+//                System.out.println(tableModel.getValueAt(table.getSelectedRow(), 0));
+//                System.out.println(result.charAt(0));
+                String name = (String) tableModel.getValueAt(table.getSelectedRow(), 0);
+                int val = result.charAt(0) - '0';
+
+                sqlite.editRole (name, val);
+                init ();
+                // System.out.println (val);
             }
         }
     }//GEN-LAST:event_editRoleBtnActionPerformed
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
         if(table.getSelectedRow() >= 0){
+            if (((String) tableModel.getValueAt(table.getSelectedRow(), 0)).equalsIgnoreCase (Main.getInstance ().model
+                    .getUser ().getUsername ())) {
+                JOptionPane.showMessageDialog (this, "Cannot delete own account", "Delete error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
             JPasswordField jPasswordField = new JPasswordField ();
             int option = JOptionPane.showConfirmDialog (null, jPasswordField, "confirm password", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 
@@ -232,6 +253,12 @@ public class MgmtUser extends javax.swing.JPanel {
 
     private void lockBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lockBtnActionPerformed
         if(table.getSelectedRow() >= 0){
+            if (((String) tableModel.getValueAt(table.getSelectedRow(), 0)).equalsIgnoreCase (Main.getInstance ().model
+                    .getUser ().getUsername ())) {
+                JOptionPane.showMessageDialog (this, "Cannot lock own account", "lock error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
             String state = "lock";
             if("1".equals(tableModel.getValueAt(table.getSelectedRow(), 3) + "")){
                 state = "unlock";

@@ -597,4 +597,24 @@ public class SQLite {
         }
 
     }
+
+    public void editRole (String name, int val) {
+        StringBuilder sb = new StringBuilder ();
+        sb.append ("UPDATE users ")
+                .append (" SET role = ").append (val)
+                .append (" WHERE username = '").append (name).append ("'")
+                .append (";");
+
+        String sql = sb.toString ();
+
+        try (Connection conn = DriverManager.getConnection(driverURL);
+             Statement stmt = conn.createStatement()) {
+            stmt.execute (sql);
+            Logger.log ("user role", name + " role set to " + val);
+            Logger.dblog ("user role", Main.getInstance ().model.getUser ().getUsername (), name + " role set to " + val);
+        } catch (Exception e) {
+            Logger.log ("database error", "failed to set user role");
+        }
+
+    }
 }

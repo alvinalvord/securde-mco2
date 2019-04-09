@@ -274,6 +274,7 @@ public class SQLite {
             stmt.execute(sql);
 
             Controller.Logger.log ("user add", "user " + username + " added");
+            Logger.dblog ("NOTICE", username, "user account created");
         } catch (Exception ex) {
             Controller.Logger.log ("database access error", "forced exit due to failure to connect to database @account creation");
             System.exit (0);
@@ -386,7 +387,10 @@ public class SQLite {
             System.exit (0);
         }
 
+        Logger.log ("save logs", "logs have been saved to " + filepath);
         dropLogsTable ();
         createLogsTable ();
+
+        Logger.dblog ("NOTICE", Main.getInstance ().model.getUser ().getUsername (), "database logs were saved into " + filepath);
     }
 }

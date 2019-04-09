@@ -138,6 +138,8 @@ public class MgmtLogs extends javax.swing.JPanel {
     private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
         String filepath = JOptionPane.showInputDialog ("Enter filename to save logs: ");
 
+        if (filepath == null || filepath.length () == 0) return;
+
         Logger.log ("save logs", "database logs will be saved into " + filepath);
         sqlite.saveAndClearLogs (filepath);
     }//GEN-LAST:event_clearBtnActionPerformed

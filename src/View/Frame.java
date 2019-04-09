@@ -1,6 +1,6 @@
 package View;
 
-import Controller.Main;
+import Controller.*;
 import Model.*;
 
 import java.awt.BorderLayout;
@@ -202,6 +202,7 @@ public class Frame extends javax.swing.JFrame {
 
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
 		Controller.Logger.log ("user logout", "user " + main.model.getUser ().getUsername () + " has logged out");
+		Logger.dblog ("NOTICE", main.model.getUser ().getUsername (), "logged out");
 		main.model.logout ();
         frameView.show(Container, "loginPnl");
     }//GEN-LAST:event_logoutBtnActionPerformed

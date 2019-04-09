@@ -5,9 +5,10 @@
  */
 package View;
 
-import Controller.SQLite;
+import Controller.*;
 import Model.Logs;
 import java.util.ArrayList;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -27,7 +28,7 @@ public class MgmtLogs extends javax.swing.JPanel {
         
 //        UNCOMMENT TO DISABLE BUTTONS
 //        clearBtn.setVisible(false);
-//        debugBtn.setVisible(false);
+        debugBtn.setVisible(false);
     }
 
     public void init(){
@@ -92,7 +93,7 @@ public class MgmtLogs extends javax.swing.JPanel {
 
         clearBtn.setBackground(new java.awt.Color(255, 255, 255));
         clearBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        clearBtn.setText("CLEAR");
+        clearBtn.setText("SAVE AND CLEAR");
         clearBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearBtnActionPerformed(evt);
@@ -135,7 +136,10 @@ public class MgmtLogs extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
-        
+        String filepath = JOptionPane.showInputDialog ("Enter filename to save logs: ");
+
+        Logger.log ("save logs", "database logs will be saved into " + filepath);
+        sqlite.saveAndClearLogs (filepath);
     }//GEN-LAST:event_clearBtnActionPerformed
 
     private void debugBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debugBtnActionPerformed

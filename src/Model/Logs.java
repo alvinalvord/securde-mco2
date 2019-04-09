@@ -89,5 +89,16 @@ public class Logs {
     public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
     }
-    
+
+    @Override
+    public String toString () {
+        return "Logs{" +
+                "id=" + id +
+                ", event='" + event + '\'' +
+                ", username='" + username + '\'' +
+                ", desc='" + desc + '\'' +
+                ", timestamp=" + timestamp +
+                '}';
+    }
+
 }

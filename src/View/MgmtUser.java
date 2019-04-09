@@ -56,8 +56,9 @@ public class MgmtUser extends javax.swing.JPanel {
         List<User> users = sqlite.getUsers2 ();
         for(int nCtr = 0; nCtr < users.size(); nCtr++){
             tableModel.addRow(new Object[]{
-                users.get(nCtr).getUsername(), 
-                users.get(nCtr).getPassword(), 
+                users.get(nCtr).getUsername(),
+                    "********",
+                //users.get(nCtr).getPassword(),
                 users.get(nCtr).getRole(), 
                 users.get(nCtr).getLocked()});
         }

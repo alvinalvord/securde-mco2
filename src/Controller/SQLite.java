@@ -1,12 +1,14 @@
 package Controller;
 
 import Model.*;
+
+import java.io.*;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
+import java.util.*;
 
 public class SQLite {
 
@@ -18,8 +20,13 @@ public class SQLite {
             if (conn != null) {
                 DatabaseMetaData meta = conn.getMetaData();
                 System.out.println("Database database.db created.");
+
+                Controller.Logger.log ("database creation", "database was created");
             }
-        } catch (Exception ex) {}
+        } catch (Exception ex) {
+            Controller.Logger.log ("database access error", "forced exit due to failure to connect to database @database create");
+            System.exit (0);
+        }
     }
     
     public void createHistoryTable() {
@@ -82,7 +89,11 @@ public class SQLite {
             Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
             System.out.println("Table users in database.db created.");
-        } catch (Exception ex) {}
+            Controller.Logger.log ("user table creation", "user table was created");
+        } catch (Exception ex) {
+            Controller.Logger.log ("database access error", "forced exit due to failure to connect to database @user table creation");
+            System.exit (0);
+        }
     }
     
     public void dropHistoryTable() {
@@ -122,7 +133,11 @@ public class SQLite {
             Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
             System.out.println("Table users in database.db dropped.");
-        } catch (Exception ex) {}
+            Controller.Logger.log ("drop table", "users table dropped");
+        } catch (Exception ex) {
+            Controller.Logger.log ("database access error", "forced exit due to failure to connect to database @drop user table");
+            System.exit (0);
+        }
     }
     
     public void addHistory(String username, String name, int stock, String timestamp) {
@@ -153,19 +168,26 @@ public class SQLite {
     }
     
     public void addUser(String username, String password) {
-        String sql = "INSERT INTO users(username,password) VALUES('" + username + "','" + password + "')";
-        
-        try (Connection conn = DriverManager.getConnection(driverURL);
-            Statement stmt = conn.createStatement()){
-            stmt.execute(sql);
-            
+        String hashedPassword = PasswordEncryption.hash (password);
+        String sql = "INSERT INTO users(username,password) VALUES('" + username + "','" + hashedPassword + "')";
+
+        execAddUser (sql, username);
+
+//        try (Connection conn = DriverManager.getConnection(driverURL);
+//            Statement stmt = conn.createStatement()){
+//            stmt.execute(sql);
+//
+//            Controller.Logger.log ("user add", "user " + username + " added");
 //      PREPARED STATEMENT EXAMPLE
 //      String sql = "INSERT INTO users(username,password) VALUES(?,?)";
 //      PreparedStatement pstmt = conn.prepareStatement(sql)) {
 //      pstmt.setString(1, username);
 //      pstmt.setString(2, password);
 //      pstmt.executeUpdate();
-        } catch (Exception ex) {}
+//        } catch (Exception ex) {
+//            Controller.Logger.log ("database access error", "forced exit due to failure to connect to database @account creation");
+//            System.exit (0);
+//        }
     }
     
     
@@ -245,15 +267,24 @@ public class SQLite {
         } catch (Exception ex) {}
         return users;
     }
-    
-    public void addUser(String username, String password, int role) {
-        String sql = "INSERT INTO users(username,password,role) VALUES('" + username + "','" + password + "','" + role + "')";
-        
+
+    public void execAddUser (String sql, String username) {
         try (Connection conn = DriverManager.getConnection(driverURL);
-            Statement stmt = conn.createStatement()){
+             Statement stmt = conn.createStatement()){
             stmt.execute(sql);
-            
-        } catch (Exception ex) {}
+
+            Controller.Logger.log ("user add", "user " + username + " added");
+        } catch (Exception ex) {
+            Controller.Logger.log ("database access error", "forced exit due to failure to connect to database @account creation");
+            System.exit (0);
+        }
+    }
+
+    public void addUser(String username, String password, int role) {
+        String hashedPassword = PasswordEncryption.hash (password);
+        String sql = "INSERT INTO users(username,password,role) VALUES('" + username + "','" + hashedPassword + "','" + role + "')";
+
+        execAddUser (sql, username);
     }
     
     public void removeUser(String username) {
@@ -277,5 +308,85 @@ public class SQLite {
                                    rs.getFloat("price"));
         } catch (Exception ex) {}
         return product;
+    }
+
+    public User getUser (String username, String password) {
+        StringBuilder sb = new StringBuilder ();
+        sb.append (" select id, username, password, role, locked ")
+                .append (" from users ")
+                .append (" where username = '")
+                .append (username)
+                .append ("' and ")
+                .append (" password = '")
+                .append (PasswordEncryption.hash (password))
+                .append ("'");
+
+        String sql = sb.toString ();
+
+        try (Connection conn = DriverManager.getConnection(driverURL);
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)){
+
+            User user = null;
+            while (rs.next()) {
+                user = new User(rs.getInt("id"),
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        rs.getInt("role"),
+                        rs.getInt ("locked"));
+            }
+
+            Controller.Logger.log ("data get", "login request was queried");
+            return user;
+        } catch (Exception ex) {
+            ex.printStackTrace ();
+            Controller.Logger.log ("database access error", "forced exit due to failure to connect to database @login");
+            System.exit (0);
+        }
+
+        return null;
+    }
+
+    public boolean userExists (String user) {
+        StringBuilder sb = new StringBuilder ();
+        sb.append ("select username ")
+                .append (" from users ")
+                .append (" where username = '").append (user).append ("'");
+
+        String sql = sb.toString ();
+
+        try (Connection conn = DriverManager.getConnection(driverURL);
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next ()) { return true; }
+
+            Controller.Logger.log ("data get", "username" + user + " availability checked");
+        } catch (Exception ex) {
+            ex.printStackTrace ();
+            Controller.Logger.log ("database access error", "forced exit due to failure to connect to database @register");
+            System.exit (0);
+        }
+
+        return false;
+    }
+
+
+    public void saveAndClearLogs (String filepath) {
+        List<Logs> logs = getLogs ();
+
+        try {
+            PrintWriter printWriter = new PrintWriter (new FileWriter (filepath, true));
+
+            for (Logs l : logs) {
+                printWriter.println (l.toString ());
+            }
+            printWriter.close ();
+        } catch (IOException e) {
+            Logger.log ("log error", "failed to save logs");
+            System.exit (0);
+        }
+
+        dropLogsTable ();
+        createLogsTable ();
     }
 }

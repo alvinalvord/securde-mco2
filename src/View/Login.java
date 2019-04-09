@@ -15,7 +15,7 @@ public class Login extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -86,10 +86,19 @@ public class Login extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        frame.mainNav();
+        String username = jTextField1.getText ().toLowerCase ();
+        String password = new String (jTextField2.getPassword ());
+
+        if (frame.authenticate (username, password)) {
+            frame.mainNav();
+        }
+        jTextField1.setText ("");
+        jTextField2.setText ("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        jTextField1.setText ("");
+        jTextField2.setText ("");
         frame.registerNav();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -99,6 +108,6 @@ public class Login extends javax.swing.JPanel {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JPasswordField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

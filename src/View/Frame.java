@@ -6,7 +6,7 @@ import Model.*;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Dimension;
-import javax.swing.WindowConstants;
+import javax.swing.*;
 
 public class Frame extends javax.swing.JFrame {
 
@@ -201,6 +201,8 @@ public class Frame extends javax.swing.JFrame {
     }//GEN-LAST:event_clientBtnActionPerformed
 
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
+		Controller.Logger.log ("user logout", "user " + main.model.getUser ().getUsername () + " has logged out");
+		main.model.logout ();
         frameView.show(Container, "loginPnl");
     }//GEN-LAST:event_logoutBtnActionPerformed
 
@@ -246,21 +248,78 @@ public class Frame extends javax.swing.JFrame {
     }
     
     public void mainNav(){
+		adminBtn.setVisible (false);
+		managerBtn.setVisible (false);
+		staffBtn.setVisible (false);
+		clientBtn.setVisible (false);
+		Content.remove (adminHomePnl);
+		Content.remove (managerHomePnl);
+		Content.remove (staffHomePnl);
+		Content.remove (clientHomePnl);
+
     	if (main.model.isAdmin ()) {
-
+			Content.add (adminHomePnl); adminBtn.setVisible (true);
 		} else if (main.model.isManager ()) {
-
+			Content.add (managerHomePnl); managerBtn.setVisible (true);
 		} else if (main.model.isStaff ()) {
-
+			Content.add (staffHomePnl); staffBtn.setVisible (true);
 		} else if (main.model.isClient ()) {
-
+			Content.add (clientHomePnl); clientBtn.setVisible (true);
 		} else {
-
+			javax.swing.JOptionPane.showMessageDialog (this,
+					"Account is disabled",
+					"Access Denied",
+					javax.swing.JOptionPane.ERROR_MESSAGE);
+			System.exit (0);
 		}
 
+		System.out.println ("User access level: " + main.model.getUser ().getRole ());
 		frameView.show(Container, "homePnl");
     }
-    
+
+	public boolean authenticate (String username, String password) {
+		if (isNullUsername (username) || isNullPassword (password)) {
+			Controller.Logger.log ("login error", "login username and/or password field is empty");
+
+			javax.swing.JOptionPane.showMessageDialog (this, "Please do not leave username and/or password fields empty", "Login Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+
+		Model.User user = main.sqlite.getUser (username, password);
+
+		if (user == null) {
+			Controller.Logger.log ("login error", "invalid user credentials");
+
+			javax.swing.JOptionPane.showMessageDialog (this, "Username or password is invalid", "Login Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+
+			if (main.userLock == Main.userLimit) {
+				Controller.Logger.log ("login error", "login limit has been reached forced exit is required");
+
+				javax.swing.JOptionPane.showMessageDialog (this, "You have logged in 5 times with invalid credentials forcefully closing application", "Login Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+				System.exit (0);
+			}
+
+			main.userLock++;
+			return false;
+		}
+		else {
+			main.model.setUser (user);
+
+			if (main.model.getUser ().getLocked () > 0) {
+				javax.swing.JOptionPane.showMessageDialog (this,
+						"Account is locked",
+						"Access Denied",
+						javax.swing.JOptionPane.ERROR_MESSAGE);
+				System.exit (0);
+			}
+
+			Controller.Logger.log ("user login", "user " + user.getUsername () + " accessed the system");
+			Controller.Logger.dblog ("NOTICE", user.getUsername (), "user logged in");
+			main.userLock = 0;
+			return true;
+		}
+	}
+
     public void loginNav(){
         frameView.show(Container, "loginPnl");
     }
@@ -268,9 +327,79 @@ public class Frame extends javax.swing.JFrame {
     public void registerNav(){
         frameView.show(Container, "registerPnl");
     }
-    
-    public void registerAction(String username, String password, String confpass){
-        main.sqlite.addUser(username, password);
+
+	private boolean isNullUsername (String user) {
+		return user == null || user.length () == 0;
+	}
+
+	private boolean isNullPassword (String pw) {
+		return pw == null || pw.length () == 0;
+	}
+
+	private boolean isNullPassword (String pw, String cpw) {
+		return isNullPassword (pw) || isNullPassword (cpw);
+	}
+
+	private boolean isConfirmedPassword (String pw, String cpw) {
+		return pw.equals (cpw);
+	}
+
+	private boolean isValidPassword (String pw) {
+		return pw.matches ("(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[\\W\\_]).{8,}");
+	}
+
+	private boolean isValidUsername (String user) {
+		return user.matches ("([A-Za-z0-9\\_\\.]){6,}");
+	}
+
+	private boolean isExistingUser (String user) {
+		return main.sqlite.userExists (user);
+	}
+
+    public boolean registerAction(String username, String password, String confpass){
+
+		if (isNullUsername (username) || isNullPassword (password, confpass)) {
+			Controller.Logger.log ("registration error", "a field during registration was null");
+
+			javax.swing.JOptionPane.showMessageDialog (this, "Please do not leave any field empty", "Registration Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+
+			return false;
+		}
+		else if (!isConfirmedPassword (password, confpass)) {
+			Controller.Logger.log ("registration error", "password and confirm password does not match");
+
+			javax.swing.JOptionPane.showMessageDialog (this, "Please confirm password", "Registration Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+
+			return false;
+		}
+		else if (!isValidPassword (password)) {
+			Controller.Logger.log ("registration error", "invalid type of password");
+
+			javax.swing.JOptionPane.showMessageDialog (this, "Passwords must contain 8 or more characters with at least one uppercase, one lowercase, one digit, and one symbol", "Registration Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+
+			return false;
+		}
+		else if (!isValidUsername (username)) {
+			Controller.Logger.log ("registration error", "invalid type of username");
+
+			javax.swing.JOptionPane.showMessageDialog (this, "Username must contain at least 6 alphanumeric characters, underscore or dot", "Registration Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+
+			return false;
+		}
+		else if (isExistingUser (username)) {
+			Controller.Logger.log ("registration error", "username already exists");
+
+			javax.swing.JOptionPane.showMessageDialog (this, "Username is already taken", "Registration Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+
+			return false;
+		}
+		else {
+			main.sqlite.addUser(username, password, 2);
+
+			javax.swing.JOptionPane.showMessageDialog (this, "Account has been created", "Registration Successful", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+		}
+
+		return true;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -38,4 +38,11 @@ public class UserModel {
 		return user;
 	}
 
+	public void setUser (User user) {
+		this.user = user;
+	}
+
+	public void logout () {
+		user = new User (null, null);
+	}
 }

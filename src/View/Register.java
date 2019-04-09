@@ -14,10 +14,10 @@ public class Register extends javax.swing.JPanel {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        password = new javax.swing.JTextField();
+        password = new javax.swing.JPasswordField();
         username = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        confpass = new javax.swing.JTextField();
+        confpass = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
@@ -99,21 +99,36 @@ public class Register extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        frame.registerAction(username.getText(), password.getText(), confpass.getText());
-        frame.loginNav();
+        String user = username.getText ().toLowerCase ();
+        String pw = new String (password.getPassword ());
+        String cpw = new String (confpass.getPassword ());
+
+        if (frame.registerAction(user, pw, cpw)) {
+            username.setText ("");
+            password.setText ("");
+            confpass.setText ("");
+            frame.loginNav();
+        } else {
+            password.setText ("");
+            confpass.setText ("");
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        username.setText ("");
+        password.setText ("");
+        confpass.setText ("");
         frame.loginNav();
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField confpass;
+    private javax.swing.JPasswordField confpass;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField password;
+    private javax.swing.JPasswordField password;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }

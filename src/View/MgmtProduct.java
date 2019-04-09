@@ -318,6 +318,10 @@ public class MgmtProduct extends javax.swing.JPanel {
                         JOptionPane.showMessageDialog (this, "No changes found", "Update cancelled", JOptionPane.INFORMATION_MESSAGE);
                         return;
                     }
+                    if (count < 0 || price < 0.0f) {
+                        JOptionPane.showMessageDialog (this, "Values should not be negative", "Update error", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog (this, "Please enter appropriate values", "Invalid input", JOptionPane.ERROR_MESSAGE);
                     return;

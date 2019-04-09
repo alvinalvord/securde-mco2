@@ -1,9 +1,6 @@
 package Controller;
 
-import Model.History;
-import Model.Logs;
-import Model.Product;
-import Model.User;
+import Model.*;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -12,10 +9,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class SQLite {
-    
+
     public int DEBUG_MODE = 0;
     String driverURL = "jdbc:sqlite:" + "database.db";
-    
+
     public void createNewDatabase() {
         try (Connection conn = DriverManager.getConnection(driverURL)) {
             if (conn != null) {

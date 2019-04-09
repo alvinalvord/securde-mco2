@@ -35,6 +35,13 @@ public class MgmtProduct extends javax.swing.JPanel {
 //        deleteBtn.setVisible(false);
     }
 
+    public void setButtonVisibility (boolean purchase, boolean add, boolean edit, boolean delete) {
+        purchaseBtn.setVisible(purchase);
+        addBtn.setVisible(add);
+        editBtn.setVisible(edit);
+        deleteBtn.setVisible(delete);
+    }
+
     public void init(){
         //      CLEAR TABLE
         for(int nCtr = tableModel.getRowCount(); nCtr > 0; nCtr--){

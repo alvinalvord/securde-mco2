@@ -10,18 +10,28 @@ import java.util.Date;
 
 
 public class Main {
-    
+
+    private static Main instance = new Main ();
+
+    private Main () {
+
+    }
+
+    public static Main getInstance () {
+        return instance;
+    }
+
     public SQLite sqlite;
     public UserModel model;
     
     public static void main(String[] args) {
-        new Main().init();
+        Main.getInstance ().init ();
     }
     
     public void init(){
         // Initialize a driver object
-        sqlite = new SQLite();
         model = new UserModel ();
+        sqlite = new SQLite();
 
 //        // Create a database
 //        sqlite.createNewDatabase();

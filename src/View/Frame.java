@@ -246,7 +246,19 @@ public class Frame extends javax.swing.JFrame {
     }
     
     public void mainNav(){
-        frameView.show(Container, "homePnl");
+    	if (main.model.isAdmin ()) {
+
+		} else if (main.model.isManager ()) {
+
+		} else if (main.model.isStaff ()) {
+
+		} else if (main.model.isClient ()) {
+
+		} else {
+
+		}
+
+		frameView.show(Container, "homePnl");
     }
     
     public void loginNav(){

@@ -194,6 +194,7 @@ public class SQLite {
     public ArrayList<History> getHistory(){
         String sql = "SELECT id, username, name, stock, timestamp FROM history";
         ArrayList<History> histories = new ArrayList<History>();
+        List<User> users = getUsers ();
         
         try (Connection conn = DriverManager.getConnection(driverURL);
             Statement stmt = conn.createStatement();
@@ -206,7 +207,33 @@ public class SQLite {
                                    rs.getInt("stock"),
                                    rs.getString("timestamp")));
             }
-        } catch (Exception ex) {}
+        } catch (Exception ex) {
+                Logger.log ("database error", "unable to retrieve history");
+        }
+
+        Iterator<History> iter = histories.iterator ();
+
+        while (iter.hasNext ()) {
+            History cur = iter.next ();
+
+            if (Main.getInstance ().model.isClient ()) {
+                if (!cur.getUsername ().equalsIgnoreCase (Main.getInstance ().model.getUser ().getUsername ())) {
+                    iter.remove ();
+                }
+            } else {
+                if (!cur.getUsername ().equalsIgnoreCase (Main.getInstance ().model.getUser ().getUsername ())) {
+                    for (User u: users) {
+                        if (cur.getUsername ().equalsIgnoreCase (u.getUsername ())) {
+                            if (Main.getInstance ().model.getUser ().getRole () <= u.getRole ()) {
+                                iter.remove ();
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
         return histories;
     }
     

@@ -8,9 +8,12 @@ package View;
 import Controller.SQLite;
 import Model.History;
 import Model.Product;
-import java.util.ArrayList;
+
+import java.awt.event.*;
+import java.util.*;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -197,7 +200,13 @@ public class MgmtHistory extends javax.swing.JPanel {
     }//GEN-LAST:event_searchBtnActionPerformed
 
     private void reloadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reloadBtnActionPerformed
+        Timer timer = new Timer (5000, e -> {
+			reloadBtn.setEnabled (true);
+		});
+        timer.setRepeats (false);
         init();
+        reloadBtn.setEnabled (false);
+        timer.start ();
     }//GEN-LAST:event_reloadBtnActionPerformed
 
 

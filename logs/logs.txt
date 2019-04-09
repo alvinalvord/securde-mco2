@@ -1,0 +1,69 @@
+2019-04-10	00:31:07:992	[database creation]	--- database was created
+2019-04-10	00:31:08:070	[drop table]	--- users table dropped
+2019-04-10	00:31:08:126	[user table creation]	--- user table was created
+2019-04-10	00:31:08:296	[user add]	--- user admin added
+2019-04-10	00:31:08:336	[user add]	--- user manager added
+2019-04-10	00:31:08:368	[user add]	--- user staff added
+2019-04-10	00:31:08:398	[user add]	--- user client1 added
+2019-04-10	00:31:08:427	[user add]	--- user client2 added
+2019-04-10	00:31:15:285	[data get]	--- login request was queried
+2019-04-10	00:31:15:289	[user login]	--- user client1 accessed the system
+2019-04-10	00:42:54:280	[database creation]	--- database was created
+2019-04-10	00:42:54:350	[drop table]	--- users table dropped
+2019-04-10	00:42:54:409	[user table creation]	--- user table was created
+2019-04-10	00:42:54:573	[user add]	--- user admin added
+2019-04-10	00:42:54:611	[user add]	--- user manager added
+2019-04-10	00:42:54:652	[user add]	--- user staff added
+2019-04-10	00:42:54:690	[user add]	--- user client1 added
+2019-04-10	00:42:54:722	[user add]	--- user client2 added
+2019-04-10	00:43:22:483	[database creation]	--- database was created
+2019-04-10	00:43:22:561	[drop table]	--- users table dropped
+2019-04-10	00:43:22:611	[user table creation]	--- user table was created
+2019-04-10	00:43:22:749	[user add]	--- user admin added
+2019-04-10	00:43:22:784	[user add]	--- user manager added
+2019-04-10	00:43:22:819	[user add]	--- user staff added
+2019-04-10	00:43:22:855	[user add]	--- user client1 added
+2019-04-10	00:43:22:896	[user add]	--- user client2 added
+2019-04-10	00:43:45:581	[database creation]	--- database was created
+2019-04-10	00:43:45:644	[drop table]	--- users table dropped
+2019-04-10	00:43:45:696	[user table creation]	--- user table was created
+2019-04-10	00:43:45:839	[user add]	--- user admin added
+2019-04-10	00:43:45:872	[user add]	--- user manager added
+2019-04-10	00:43:45:911	[user add]	--- user staff added
+2019-04-10	00:43:45:948	[user add]	--- user client1 added
+2019-04-10	00:43:45:984	[user add]	--- user client2 added
+2019-04-10	00:43:58:306	[data get]	--- login request was queried
+2019-04-10	00:43:58:316	[user login]	--- user client1 accessed the system
+2019-04-10	00:44:14:616	[user logout]	--- user client1 has logged out
+2019-04-10	00:44:22:329	[data get]	--- login request was queried
+2019-04-10	00:44:22:333	[user login]	--- user manager accessed the system
+2019-04-10	00:44:38:889	[user logout]	--- user manager has logged out
+2019-04-10	00:44:42:265	[data get]	--- login request was queried
+2019-04-10	00:44:42:269	[user login]	--- user admin accessed the system
+2019-04-10	00:46:16:678	[database creation]	--- database was created
+2019-04-10	00:46:16:740	[drop table]	--- users table dropped
+2019-04-10	00:46:16:792	[user table creation]	--- user table was created
+2019-04-10	00:46:16:954	[user add]	--- user admin added
+2019-04-10	00:46:16:991	[user add]	--- user manager added
+2019-04-10	00:46:17:022	[user add]	--- user staff added
+2019-04-10	00:46:17:053	[user add]	--- user client1 added
+2019-04-10	00:46:17:085	[user add]	--- user client2 added
+2019-04-10	00:46:26:887	[database creation]	--- database was created
+2019-04-10	00:46:26:946	[drop table]	--- users table dropped
+2019-04-10	00:46:26:997	[user table creation]	--- user table was created
+2019-04-10	00:46:27:136	[user add]	--- user admin added
+2019-04-10	00:46:27:169	[user add]	--- user manager added
+2019-04-10	00:46:27:205	[user add]	--- user staff added
+2019-04-10	00:46:27:246	[user add]	--- user client1 added
+2019-04-10	00:46:27:280	[user add]	--- user client2 added
+2019-04-10	00:46:40:209	[data get]	--- login request was queried
+2019-04-10	00:46:40:213	[user login]	--- user admin accessed the system
+2019-04-10	00:46:42:816	[user logout]	--- user admin has logged out
+2019-04-10	00:46:46:857	[data get]	--- login request was queried
+2019-04-10	00:46:46:861	[user login]	--- user manager accessed the system
+2019-04-10	00:46:50:344	[user logout]	--- user manager has logged out
+2019-04-10	00:46:53:737	[data get]	--- login request was queried
+2019-04-10	00:46:53:741	[user login]	--- user staff accessed the system
+2019-04-10	00:46:56:984	[user logout]	--- user staff has logged out
+2019-04-10	00:47:01:440	[data get]	--- login request was queried
+2019-04-10	00:47:01:444	[user login]	--- user client1 accessed the system

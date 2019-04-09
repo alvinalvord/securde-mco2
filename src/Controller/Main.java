@@ -25,6 +25,7 @@ public class Main {
 
     public SQLite sqlite;
     public UserModel model;
+    public Frame frame;
     
     public static void main(String[] args) {
         Main.getInstance ().init ();
@@ -112,7 +113,7 @@ public class Main {
         }
         
         // Initialize User Interface
-        Frame frame = new Frame();
+        frame = new Frame();
         frame.init(this);
     }
     

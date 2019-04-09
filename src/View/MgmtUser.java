@@ -5,9 +5,10 @@
  */
 package View;
 
-import Controller.SQLite;
+import Controller.*;
 import Model.User;
-import java.util.ArrayList;
+
+import java.util.*;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
@@ -32,10 +33,17 @@ public class MgmtUser extends javax.swing.JPanel {
         table.getTableHeader().setFont(new java.awt.Font("SansSerif", java.awt.Font.BOLD, 14));
         
 //        UNCOMMENT TO DISABLE BUTTONS
-//        editBtn.setVisible(false);
+//        editRoleBtn.setVisible(false);
 //        deleteBtn.setVisible(false);
 //        lockBtn.setVisible(false);
 //        chgpassBtn.setVisible(false);
+    }
+
+    public void setButtons (boolean edit, boolean delete, boolean lock, boolean change) {
+        editRoleBtn.setVisible(edit);
+        deleteBtn.setVisible(delete);
+        lockBtn.setVisible(lock);
+        chgpassBtn.setVisible(change);
     }
     
     public void init(){
@@ -45,7 +53,7 @@ public class MgmtUser extends javax.swing.JPanel {
         }
         
 //      LOAD CONTENTS
-        ArrayList<User> users = sqlite.getUsers();
+        List<User> users = sqlite.getUsers2 ();
         for(int nCtr = 0; nCtr < users.size(); nCtr++){
             tableModel.addRow(new Object[]{
                 users.get(nCtr).getUsername(), 
@@ -223,9 +231,20 @@ public class MgmtUser extends javax.swing.JPanel {
     }//GEN-LAST:event_lockBtnActionPerformed
 
     private void chgpassBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chgpassBtnActionPerformed
-        if(table.getSelectedRow() >= 0){
-            JTextField password = new JPasswordField();
-            JTextField confpass = new JPasswordField();
+       if(table.getSelectedRow() >= 0){
+            JPasswordField jPasswordField = new JPasswordField ();
+            int option = JOptionPane.showConfirmDialog (null, jPasswordField, "confirm password", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+
+            if (option == JOptionPane.OK_OPTION) {
+                String password = new String (jPasswordField.getPassword ());
+                if (! Main.getInstance ().model.reauth (password)) {
+                    JOptionPane.showMessageDialog (this, "Re-authentication failed", "Invalid user", JOptionPane.ERROR_MESSAGE);
+                    System.exit (0);
+                }
+            } else return;
+
+           JPasswordField password = new JPasswordField();
+           JPasswordField confpass = new JPasswordField();
             designer(password, "PASSWORD");
             designer(confpass, "CONFIRM PASSWORD");
             
@@ -236,8 +255,28 @@ public class MgmtUser extends javax.swing.JPanel {
             int result = JOptionPane.showConfirmDialog(null, message, "CHANGE PASSWORD", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null);
             
             if (result == JOptionPane.OK_OPTION) {
-                System.out.println(password.getText());
-                System.out.println(confpass.getText());
+//                System.out.println(password.getText());
+//                System.out.println(confpass.getText());
+
+                String pw = new String (password.getPassword ());
+                String cpw = new String (confpass.getPassword ());
+
+                if (Main.getInstance ().frame.checkConfirm (pw, cpw)) {
+                    String user = (String) tableModel.getValueAt (table.getSelectedRow (), 0);
+
+                    boolean success = sqlite.updatePassword (user, pw);
+
+                    if (!success) {
+                        JOptionPane.showMessageDialog (this, "Failed to update password", "Update failed", JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog (this, "Successfully updated password", "Update success", JOptionPane.INFORMATION_MESSAGE);
+                        init ();
+                    }
+                } else {
+                    JOptionPane.showMessageDialog (this, "Invalid password details, try again", "Invalid input", JOptionPane.ERROR_MESSAGE);
+                }
+
+
             }
         }
     }//GEN-LAST:event_chgpassBtnActionPerformed

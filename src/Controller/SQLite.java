@@ -416,7 +416,6 @@ public class SQLite {
             Controller.Logger.log ("data get", "login request was queried");
             return user;
         } catch (Exception ex) {
-            ex.printStackTrace ();
             Controller.Logger.log ("database access error", "forced exit due to failure to connect to database @login");
             System.exit (0);
         }
@@ -439,7 +438,6 @@ public class SQLite {
 
             Controller.Logger.log ("data get", "username" + user + " availability checked");
         } catch (Exception ex) {
-            ex.printStackTrace ();
             Controller.Logger.log ("database access error", "forced exit due to failure to connect to database @register");
             System.exit (0);
         }
@@ -487,5 +485,68 @@ public class SQLite {
         }
 
         return retval;
+    }
+
+    public List<User> getUsers2 () {
+        if (Main.getInstance ().model.isAdmin ()) {
+            return getUsers ();
+        } else {
+            List<User> list = new ArrayList<> ();
+            Main.getInstance ().model.setUser (getUserByName (Main.getInstance ().model.getUser ().getUsername ()));
+            list.add (Main.getInstance ().model.getUser ());
+            return list;
+        }
+    }
+
+    private User getUserByName (String username) {
+        StringBuilder sb = new StringBuilder ();
+        sb.append (" select id, username, password, role, locked ")
+                .append (" from users ")
+                .append (" where username = '")
+                .append (username)
+                .append ("'");
+
+        String sql = sb.toString ();
+
+        try (Connection conn = DriverManager.getConnection(driverURL);
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)){
+
+            User user = null;
+            while (rs.next()) {
+                user = new User(rs.getInt("id"),
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        rs.getInt("role"),
+                        rs.getInt ("locked"));
+            }
+
+            return user;
+        } catch (Exception ex) {
+            Controller.Logger.log ("database access error", "user cannot be retrieved");
+        }
+
+        return null;
+    }
+
+    public boolean updatePassword (String user, String pw) {
+        String hashedPassword = PasswordEncryption.hash (pw);
+        StringBuilder sb = new StringBuilder ();
+        sb.append ("UPDATE users ")
+                .append (" SET password = '").append (hashedPassword).append ("' ")
+                .append (" WHERE username = '").append (user).append ("';");
+
+        String sql = sb.toString ();
+
+        try (Connection conn = DriverManager.getConnection(driverURL);
+             Statement stmt = conn.createStatement()) {
+            stmt.execute (sql);
+            Logger.log ("password change", user + " changed password");
+            Logger.dblog ("password change", Main.getInstance ().model.getUser ().getUsername (), "changed password");
+            return true;
+        } catch (Exception e) {
+            Logger.log ("password change error", "failed to change password " + user);
+        }
+        return false;
     }
 }

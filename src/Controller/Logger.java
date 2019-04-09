@@ -41,7 +41,7 @@ public class Logger {
 		String[] time = datetime.split ("T")[1].split ("_");
 		System.out.println ("database log: " + user + "\t" + description);
 
-		Main.getInstance ().sqlite.addLogs (event, user, description, date + " " + String.join (":", time[0], time[1], time[2]) + "." + time[3]);
+		Main.getInstance ().sqlite.addLogs (event, user, description, date + " " + String.join (":", time[0], time[1], time[2]) + "." + (time.length == 4 ? time[3] : 0));
 	}
 	
 }

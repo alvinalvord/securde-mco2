@@ -312,6 +312,12 @@ public class MgmtProduct extends javax.swing.JPanel {
                     name = nameFld.getText ();
                     count = Integer.parseInt (stockFld.getText ());
                     price = Float.parseFloat (priceFld.getText ());
+
+                    if (product.getName ().equals (name) && product.getStock () == count && product.getPrice () ==
+                            price) {
+                        JOptionPane.showMessageDialog (this, "No changes found", "Update cancelled", JOptionPane.INFORMATION_MESSAGE);
+                        return;
+                    }
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog (this, "Please enter appropriate values", "Invalid input", JOptionPane.ERROR_MESSAGE);
                     return;
@@ -343,7 +349,7 @@ public class MgmtProduct extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog (this, "Re-authentication failed", "Invalid user", JOptionPane.ERROR_MESSAGE);
                 System.exit (0);
             }
-        }
+        } else return;
 
         if(table.getSelectedRow() >= 0){
             int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete " + tableModel.getValueAt(table.getSelectedRow(), 0) + "?", "DELETE PRODUCT", JOptionPane.YES_NO_OPTION);

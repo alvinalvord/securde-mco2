@@ -357,6 +357,10 @@ public class Frame extends javax.swing.JFrame {
 		return main.sqlite.userExists (user);
 	}
 
+	public boolean checkConfirm (String pw, String cpw) {
+		return ! isNullPassword (pw, cpw) && isConfirmedPassword (pw, cpw) && isValidPassword (pw);
+	}
+
     public boolean registerAction(String username, String password, String confpass){
 
 		if (isNullUsername (username) || isNullPassword (password, confpass)) {

@@ -51,6 +51,7 @@ public class AdminHome extends javax.swing.JPanel {
 //        historyBtn.setVisible(false);
 //        logsBtn.setVisible(false);
 
+        mgmtUser.setButtons (true, true, true, true);
         mgmtProduct.setButtonVisibility (false, true, true, true);
     }
     

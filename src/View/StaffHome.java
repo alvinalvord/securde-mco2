@@ -46,11 +46,12 @@ public class StaffHome extends javax.swing.JPanel {
         Content.add(mgmtLogs, "mgmtLogs");
         
 //        UNCOMMENT TO DISABLE BUTTONS
-        usersBtn.setVisible(false);
+//        usersBtn.setVisible(false);
 //        productsBtn.setVisible(false);
         historyBtn.setVisible(false);
         logsBtn.setVisible(false);
 
+        mgmtUser.setButtons (false, false, false, true);
         mgmtProduct.setButtonVisibility (false, false, true, false);
     }
     

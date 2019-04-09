@@ -145,7 +145,7 @@ public class MgmtLogs extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog (this, "Re-authentication failed", "Invalid user", JOptionPane.ERROR_MESSAGE);
                 System.exit (0);
             }
-        }
+        } else return;
 
         String filepath = JOptionPane.showInputDialog ("Enter filename to save logs: ");
 

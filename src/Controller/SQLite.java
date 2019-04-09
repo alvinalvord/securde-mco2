@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.*;
+import sun.rmi.runtime.*;
 
 import java.io.*;
 import java.sql.*;
@@ -39,7 +40,10 @@ public class SQLite {
             Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
             System.out.println("Table history in database.db created.");
-        } catch (Exception ex) {}
+            Controller.Logger.log ("history table creation", "history table was created");
+        } catch (Exception ex) {
+            Controller.Logger.log ("database access error", "forced exit due to failure to connect to database @history table creation");
+        }
     }
     
     public void createLogsTable() {
@@ -55,7 +59,10 @@ public class SQLite {
             Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
             System.out.println("Table logs in database.db created.");
-        } catch (Exception ex) {}
+            Controller.Logger.log ("logs table creation", "logs table was created");
+        } catch (Exception ex) {
+            Controller.Logger.log ("database access error", "forced exit due to failure to connect to database @logs table creation");
+        }
     }
      
     public void createProductTable() {
@@ -70,7 +77,10 @@ public class SQLite {
             Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
             System.out.println("Table product in database.db created.");
-        } catch (Exception ex) {}
+            Controller.Logger.log ("product table creation", "product table was created");
+        } catch (Exception ex) {
+            Controller.Logger.log ("database access error", "forced exit due to failure to connect to database @product table creation");
+        }
     }
      
     public void createUserTable() {
@@ -99,8 +109,10 @@ public class SQLite {
         try (Connection conn = DriverManager.getConnection(driverURL);
             Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
-            System.out.println("Table history in database.db dropped.");
-        } catch (Exception ex) {}
+            Logger.log ("drop table", "successfully dropped history table");
+        } catch (Exception ex) {
+            Logger.log ("drop table", "failed to drop history table");
+        }
     }
     
     public void dropLogsTable() {
@@ -109,8 +121,10 @@ public class SQLite {
         try (Connection conn = DriverManager.getConnection(driverURL);
             Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
-            System.out.println("Table logs in database.db dropped.");
-        } catch (Exception ex) {}
+            Logger.log ("drop table", "successfully dropped logs table");
+        } catch (Exception ex) {
+            Logger.log ("drop table", "failed to drop logs table");
+        }
     }
     
     public void dropProductTable() {
@@ -120,7 +134,10 @@ public class SQLite {
             Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
             System.out.println("Table product in database.db dropped.");
-        } catch (Exception ex) {}
+            Logger.log ("drop table", "successfully dropped product table");
+        } catch (Exception ex) {
+            Logger.log ("drop table", "failed to drop product table");
+        }
     }
     
     public void dropUserTable() {
@@ -143,7 +160,9 @@ public class SQLite {
         try (Connection conn = DriverManager.getConnection(driverURL);
             Statement stmt = conn.createStatement()){
             stmt.execute(sql);
-        } catch (Exception ex) {}
+        } catch (Exception ex) {
+                Logger.log ("history", "failed to add history");
+        }
     }
     
     public void addLogs(String event, String username, String desc, String timestamp) {
@@ -152,7 +171,9 @@ public class SQLite {
         try (Connection conn = DriverManager.getConnection(driverURL);
             Statement stmt = conn.createStatement()){
             stmt.execute(sql);
-        } catch (Exception ex) {}
+        } catch (Exception ex) {
+                Logger.log ("logs", "failed to add logs");
+        }
     }
     
     public boolean addProduct(String name, int stock, double price) {
@@ -258,6 +279,7 @@ public class SQLite {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
+            Logger.log ("logs", "failed to retrieve logs");
         }
         return logs;
     }
@@ -295,7 +317,7 @@ public class SQLite {
                                    rs.getFloat("price")));
             }
         } catch (Exception ex) {
-            System.out.println ("error?");
+            Logger.log ("get product", "failed to get products");
         }
         return products;
     }
@@ -315,7 +337,9 @@ public class SQLite {
                                    rs.getInt("role"),
                                    rs.getInt("locked")));
             }
-        } catch (Exception ex) {}
+        } catch (Exception ex) {
+                Logger.log ("get users", "failed to get users");
+        }
         return users;
     }
 
@@ -346,7 +370,11 @@ public class SQLite {
             Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
             System.out.println("User " + username + " has been deleted.");
-        } catch (Exception ex) {}
+            Logger.log ("user delete", "user " + username + " has been deleted");
+            Logger.dblog ("user delete", Main.getInstance ().model.getUser ().getUsername (), "user " + username + " has been deleted");
+        } catch (Exception ex) {
+            Logger.log ("user delete", "failed to delete user " + username);
+        }
     }
 
     public void editProduct (Product product, String name, int stock, float price) {
@@ -548,5 +576,25 @@ public class SQLite {
             Logger.log ("password change error", "failed to change password " + user);
         }
         return false;
+    }
+
+    public void lockUser (String username, int value) {
+        StringBuilder sb = new StringBuilder ();
+        sb.append ("UPDATE users ")
+                .append (" SET locked = ").append (value)
+                .append (" WHERE username = '").append (username).append ("'")
+                .append (";");
+
+        String sql = sb.toString ();
+
+        try (Connection conn = DriverManager.getConnection(driverURL);
+             Statement stmt = conn.createStatement()) {
+            stmt.execute (sql);
+            Logger.log ("user lock", (value == 0 ? "unlocked ": "locked ") + username);
+            Logger.dblog ("user lock", Main.getInstance ().model.getUser ().getUsername (), (value == 0 ? "unlocked ": "locked ") + username);
+        } catch (Exception e) {
+            Logger.log ("database error", "failed to lock/unlock user");
+        }
+
     }
 }

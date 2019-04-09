@@ -207,10 +207,25 @@ public class MgmtUser extends javax.swing.JPanel {
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
         if(table.getSelectedRow() >= 0){
+            JPasswordField jPasswordField = new JPasswordField ();
+            int option = JOptionPane.showConfirmDialog (null, jPasswordField, "confirm password", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+
+            if (option == JOptionPane.OK_OPTION) {
+                String password = new String (jPasswordField.getPassword ());
+                if (! Main.getInstance ().model.reauth (password)) {
+                    JOptionPane.showMessageDialog (this, "Re-authentication failed", "Invalid user", JOptionPane.ERROR_MESSAGE);
+                    System.exit (0);
+                }
+            } else return;
+
             int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete " + tableModel.getValueAt(table.getSelectedRow(), 0) + "?", "DELETE USER", JOptionPane.YES_NO_OPTION);
             
             if (result == JOptionPane.YES_OPTION) {
                 System.out.println(tableModel.getValueAt(table.getSelectedRow(), 0));
+                String user = (String) tableModel.getValueAt(table.getSelectedRow(), 0);
+
+                sqlite.removeUser (user);
+                init ();
             }
         }
     }//GEN-LAST:event_deleteBtnActionPerformed
@@ -222,10 +237,12 @@ public class MgmtUser extends javax.swing.JPanel {
                 state = "unlock";
             }
             
-            int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to " + state + " " + tableModel.getValueAt(table.getSelectedRow(), 0) + "?", "DELETE USER", JOptionPane.YES_NO_OPTION);
+            int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to " + state + " " + tableModel.getValueAt(table.getSelectedRow(), 0) + "?", "USER LOCK", JOptionPane.YES_NO_OPTION);
             
             if (result == JOptionPane.YES_OPTION) {
-                System.out.println(tableModel.getValueAt(table.getSelectedRow(), 0));
+                sqlite.lockUser ((String) tableModel.getValueAt (table.getSelectedRow (), 0), (state.equals
+                        ("lock") ? 1 : 0));
+                init ();
             }
         }
     }//GEN-LAST:event_lockBtnActionPerformed

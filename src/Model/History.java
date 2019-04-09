@@ -20,22 +20,34 @@ public class History {
     private String username;
     private String name;
     private int stock;
+    private float price;
+
+    public float getPrice () {
+        return price;
+    }
+
+    public void setPrice (float price) {
+        this.price = price;
+    }
+
     private Timestamp timestamp;
 
     private SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
     
-    public History(String username, String name, int stock){
+    public History(String username, String name, int stock, float price){
         this.username = username;
         this.name = name;
         this.stock = stock;
+        this.price = price;
         this.timestamp = new Timestamp(new Date().getTime());
     }
     
-    public History(int id, String username, String name, int stock, String timestamp){
+    public History(int id, String username, String name, int stock, float price, String timestamp){
         this.id = id;
         this.username = username;
         this.name = name;
         this.stock = stock;
+        this.price = price;
         try {
             this.timestamp = new Timestamp(dateformat.parse(timestamp).getTime());
         } catch (ParseException ex) {

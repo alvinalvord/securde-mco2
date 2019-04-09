@@ -3,11 +3,7 @@ package Controller;
 import Model.*;
 
 import java.io.*;
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.*;
 
 public class SQLite {
@@ -35,6 +31,7 @@ public class SQLite {
             + " username TEXT NOT NULL,\n"
             + " name TEXT NOT NULL,\n"
             + " stock INTEGER DEFAULT 0,\n"
+            + " price REAL DEFAULT 0.0, \n"
             + " timestamp TEXT NOT NULL\n"
             + ");";
 
@@ -140,8 +137,8 @@ public class SQLite {
         }
     }
     
-    public void addHistory(String username, String name, int stock, String timestamp) {
-        String sql = "INSERT INTO history(username,name,stock,timestamp) VALUES('" + username + "','" + name + "','" + stock + "','" + timestamp + "')";
+    public void addHistory(String username, String name, int stock, float price, String timestamp) {
+        String sql = "INSERT INTO history(username,name,stock,price,timestamp) VALUES('" + username + "','" + name + "','" + stock + "','" + price + "','" + timestamp + "')";
         
         try (Connection conn = DriverManager.getConnection(driverURL);
             Statement stmt = conn.createStatement()){
@@ -158,13 +155,19 @@ public class SQLite {
         } catch (Exception ex) {}
     }
     
-    public void addProduct(String name, int stock, double price) {
+    public boolean addProduct(String name, int stock, double price) {
         String sql = "INSERT INTO product(name,stock,price) VALUES('" + name + "','" + stock + "','" + price + "')";
-        
+        boolean retval = false;
         try (Connection conn = DriverManager.getConnection(driverURL);
             Statement stmt = conn.createStatement()){
             stmt.execute(sql);
-        } catch (Exception ex) {}
+            retval = true;
+            Logger.log ("database update", "a new product has been added");
+            Logger.dblog ("database update", Main.getInstance ().model.getUser ().getUsername (), "added a new product");
+        } catch (Exception ex) {
+                Logger.log ("database error", "failed to add a new product");
+        }
+        return retval;
     }
     
     public void addUser(String username, String password) {
@@ -192,7 +195,7 @@ public class SQLite {
     
     
     public ArrayList<History> getHistory(){
-        String sql = "SELECT id, username, name, stock, timestamp FROM history";
+        String sql = "SELECT id, username, name, stock, price, timestamp FROM history";
         ArrayList<History> histories = new ArrayList<History>();
         List<User> users = getUsers ();
         
@@ -205,6 +208,7 @@ public class SQLite {
                                    rs.getString("username"),
                                    rs.getString("name"),
                                    rs.getInt("stock"),
+                                   rs.getFloat ("price"),
                                    rs.getString("timestamp")));
             }
         } catch (Exception ex) {
@@ -257,7 +261,25 @@ public class SQLite {
         }
         return logs;
     }
-    
+
+    public void purchaseProduct (String productname, int newcount) {
+        StringBuilder sb = new StringBuilder ();
+        sb.append ("UPDATE product ")
+                .append (" SET stock = ").append (newcount)
+                .append (" WHERE name = '").append (productname).append ("';");
+
+        String sql = sb.toString ();
+
+        try (Connection conn = DriverManager.getConnection(driverURL);
+             Statement stmt = conn.createStatement()) {
+            stmt.execute (sql);
+        } catch (SQLException e) {
+            Logger.log ("purchase error", "failed to purchase " + productname);
+            Logger.dblog ("ERROR", Main.getInstance ().model.getUser ().getUsername (), "failed to purchase " + productname);
+            System.exit (0);
+        }
+    }
+
     public ArrayList<Product> getProduct(){
         String sql = "SELECT id, name, stock, price FROM product";
         ArrayList<Product> products = new ArrayList<Product>();
@@ -272,7 +294,9 @@ public class SQLite {
                                    rs.getInt("stock"),
                                    rs.getFloat("price")));
             }
-        } catch (Exception ex) {}
+        } catch (Exception ex) {
+            System.out.println ("error?");
+        }
         return products;
     }
     
@@ -324,17 +348,42 @@ public class SQLite {
             System.out.println("User " + username + " has been deleted.");
         } catch (Exception ex) {}
     }
-    
+
+    public void editProduct (Product product, String name, int stock, float price) {
+        StringBuilder sb = new StringBuilder ();
+        sb.append ("UPDATE product ")
+                .append ("SET name = '").append (name).append ("', ")
+                .append (" stock = ").append (stock).append (", ")
+                .append (" price = ").append (price)
+                .append (" WHERE id = ").append (product.getId ()).append (";");
+
+        String sql = sb.toString ();
+
+        try (Connection conn = DriverManager.getConnection(driverURL);
+             Statement stmt = conn.createStatement()) {
+            stmt.execute (sql);
+
+            Logger.log ("database update", "edited product " + product.getId ());
+            Logger.dblog ("databse update", Main.getInstance ().model.getUser ().getUsername (), "edited product "+ product.getId ());
+        } catch (SQLException e) {
+            Logger.log ("database error", "unable to edit product " + product.getId ());
+        }
+    }
+
     public Product getProduct(String name){
-        String sql = "SELECT name, stock, price FROM product WHERE name='" + name + "';";
+        String sql = "SELECT id, name, stock, price FROM product WHERE name='" + name + "';";
         Product product = null;
         try (Connection conn = DriverManager.getConnection(driverURL);
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql)){
-            product = new Product(rs.getString("name"),
-                                   rs.getInt("stock"),
-                                   rs.getFloat("price"));
-        } catch (Exception ex) {}
+            product = new Product(rs.getInt ("id"),
+                    rs.getString("name"),
+                   rs.getInt("stock"),
+                   rs.getFloat("price"));
+        } catch (Exception ex) {
+                Logger.log ("database error", "unable to retrieve product");
+                System.exit (0);
+        }
         return product;
     }
 
@@ -398,7 +447,6 @@ public class SQLite {
         return false;
     }
 
-
     public void saveAndClearLogs (String filepath) {
         List<Logs> logs = getLogs ();
 
@@ -419,5 +467,25 @@ public class SQLite {
         createLogsTable ();
 
         Logger.dblog ("NOTICE", Main.getInstance ().model.getUser ().getUsername (), "database logs were saved into " + filepath);
+    }
+
+    public boolean deleteProduct (int id) {
+        StringBuilder sb = new StringBuilder ();
+        sb.append ("DELETE FROM product ")
+                .append (" WHERE id = ").append (id).append (";");
+
+        boolean retval = false;
+        String sql = sb.toString ();
+        try (Connection conn = DriverManager.getConnection(driverURL);
+             Statement stmt = conn.createStatement()) {
+            stmt.execute (sql);
+            retval = true;
+            Logger.log ("database update", "deleted product " + id);
+            Logger.dblog ("databse update", Main.getInstance ().model.getUser ().getUsername (), "deleted product "+ id);
+        } catch (SQLException e) {
+            Logger.log ("database error", "unable to delete product " + id);
+        }
+
+        return retval;
     }
 }

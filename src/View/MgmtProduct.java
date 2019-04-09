@@ -5,12 +5,12 @@
  */
 package View;
 
-import Controller.SQLite;
-import Model.Product;
+import Controller.*;
+import Model.*;
+import sun.rmi.runtime.*;
+
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -193,6 +193,37 @@ public class MgmtProduct extends javax.swing.JPanel {
 
             if (result == JOptionPane.OK_OPTION) {
                 System.out.println(stockFld.getText());
+                int count;
+                try {
+                    count = Integer.parseInt (stockFld.getText ());
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog (this, "Please enter an integer", "Invalid input", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                if (count <= 0) {
+                    JOptionPane.showMessageDialog (this, "Invalid number of stocks to buy", "Invalid input", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    int stock = (int) tableModel.getValueAt (table.getSelectedRow (), 1);
+
+                    if (count > stock) {
+                        JOptionPane.showMessageDialog (this, "Insufficient number of stocks", "Invalid input", JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        String productname = (String) tableModel.getValueAt (table.getSelectedRow (), 0);
+                        sqlite.purchaseProduct (productname, stock - count);
+                        Product p = sqlite.getProduct (productname);
+                        History history = new History (Main.getInstance ().model.getUser ().getUsername (),
+                                productname, count, p.getPrice ());
+                        sqlite.addHistory (history.getUsername (), history.getName (), history.getStock (), history
+                                .getPrice (), history
+                                .getTimestamp ().toString ());
+                        Logger.log ("user buy", Main.getInstance ().model.getUser ().getUsername () + " bought " +
+                                count + " " + productname);
+                        Logger.dblog ("PURCHASE", Main.getInstance ().model.getUser ().getUsername (), "bought " + count + " " + productname);
+                        init();
+                    }
+                }
+
             }
         }
     }//GEN-LAST:event_purchaseBtnActionPerformed
@@ -216,6 +247,23 @@ public class MgmtProduct extends javax.swing.JPanel {
             System.out.println(nameFld.getText());
             System.out.println(stockFld.getText());
             System.out.println(priceFld.getText());
+
+            String name = "";
+            int stock = 0;
+            float price = 0.0f;
+
+            try {
+                name = nameFld.getText ();
+                stock = Integer.parseInt (stockFld.getText ());
+                price = Float.parseFloat (priceFld.getText ());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog (this, "Please enter appropriate values", "Invalid input", JOptionPane.ERROR_MESSAGE);
+            }
+
+            if (!sqlite.addProduct (name, stock, price)) {
+                JOptionPane.showMessageDialog (this, "Failed to add a new product", "Add Product Failed", JOptionPane.ERROR_MESSAGE);
+            } else
+                init ();
         }
     }//GEN-LAST:event_addBtnActionPerformed
 
@@ -225,6 +273,8 @@ public class MgmtProduct extends javax.swing.JPanel {
             JTextField stockFld = new JTextField(tableModel.getValueAt(table.getSelectedRow(), 1) + "");
             JTextField priceFld = new JTextField(tableModel.getValueAt(table.getSelectedRow(), 2) + "");
 
+            Product product = sqlite.getProduct ((String) tableModel.getValueAt (table.getSelectedRow (), 0));
+
             designer(nameFld, "PRODUCT NAME");
             designer(stockFld, "PRODUCT STOCK");
             designer(priceFld, "PRODUCT PRICE");
@@ -233,22 +283,79 @@ public class MgmtProduct extends javax.swing.JPanel {
                 "Edit Product Details:", nameFld, stockFld, priceFld
             };
 
+            if (Main.getInstance ().model.isStaff ()) {
+                nameFld.setEditable (false);
+                stockFld.setEditable (true);
+                priceFld.setEditable (false);
+            } else if (Main.getInstance ().model.isManager ()) {
+                nameFld.setEditable (false);
+                stockFld.setEditable (true);
+                priceFld.setEditable (true);
+            } else if (Main.getInstance ().model.isAdmin ()) {
+                nameFld.setEditable (true);
+                stockFld.setEditable (true);
+                priceFld.setEditable (true);
+            }
+
             int result = JOptionPane.showConfirmDialog(null, message, "EDIT PRODUCT", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null);
 
             if (result == JOptionPane.OK_OPTION) {
                 System.out.println(nameFld.getText());
                 System.out.println(stockFld.getText());
                 System.out.println(priceFld.getText());
+
+                String name = "";
+                int count = 0;
+                float price = 0.0f;
+
+                try {
+                    name = nameFld.getText ();
+                    count = Integer.parseInt (stockFld.getText ());
+                    price = Float.parseFloat (priceFld.getText ());
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog (this, "Please enter appropriate values", "Invalid input", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                if (Main.getInstance ().model.isStaff ()) {
+                    if (product.getStock () > count) {
+                        JOptionPane.showMessageDialog (this, "Staff cannot remove stocks; contact manager or admin", "Invalid input", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    } else {
+                        sqlite.editProduct (product, name, count, price);
+                        init ();
+                    }
+                } else  {
+                    sqlite.editProduct (product, name, count, price);
+                    init ();
+                }
             }
         }
     }//GEN-LAST:event_editBtnActionPerformed
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
+        JPasswordField jPasswordField = new JPasswordField ();
+        int option = JOptionPane.showConfirmDialog (this, jPasswordField,  "confirm password", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+
+        if (option == JOptionPane.OK_OPTION) {
+            String password = new String (jPasswordField.getPassword ());
+            if (!Main.getInstance ().model.reauth (password)) {
+                JOptionPane.showMessageDialog (this, "Re-authentication failed", "Invalid user", JOptionPane.ERROR_MESSAGE);
+                System.exit (0);
+            }
+        }
+
         if(table.getSelectedRow() >= 0){
             int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete " + tableModel.getValueAt(table.getSelectedRow(), 0) + "?", "DELETE PRODUCT", JOptionPane.YES_NO_OPTION);
             
             if (result == JOptionPane.YES_OPTION) {
                 System.out.println(tableModel.getValueAt(table.getSelectedRow(), 0));
+                String name = (String) tableModel.getValueAt(table.getSelectedRow(), 0);
+
+                Product product = sqlite.getProduct (name);
+                if (!sqlite.deleteProduct (product.getId ())) {
+                    JOptionPane.showMessageDialog (this, "Failed to delete product", "Product delete failed", JOptionPane.ERROR_MESSAGE);
+                } else init ();
             }
         }
     }//GEN-LAST:event_deleteBtnActionPerformed

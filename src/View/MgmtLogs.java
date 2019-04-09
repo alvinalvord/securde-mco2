@@ -136,12 +136,24 @@ public class MgmtLogs extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
+        JPasswordField jPasswordField = new JPasswordField ();
+        int option = JOptionPane.showConfirmDialog (null, jPasswordField, "confirm password", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+
+        if (option == JOptionPane.OK_OPTION) {
+            String password = new String (jPasswordField.getPassword ());
+            if (!Main.getInstance ().model.reauth (password)) {
+                JOptionPane.showMessageDialog (this, "Re-authentication failed", "Invalid user", JOptionPane.ERROR_MESSAGE);
+                System.exit (0);
+            }
+        }
+
         String filepath = JOptionPane.showInputDialog ("Enter filename to save logs: ");
 
         if (filepath == null || filepath.length () == 0) return;
 
         Logger.log ("save logs", "database logs will be saved into " + filepath);
         sqlite.saveAndClearLogs (filepath);
+        init ();
     }//GEN-LAST:event_clearBtnActionPerformed
 
     private void debugBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debugBtnActionPerformed

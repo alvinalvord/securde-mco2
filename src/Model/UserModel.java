@@ -1,5 +1,7 @@
 package Model;
 
+import Controller.*;
+
 public class UserModel {
 
 	public static final int ADMIN = 5;
@@ -44,5 +46,11 @@ public class UserModel {
 
 	public void logout () {
 		user = new User (null, null);
+	}
+
+	public boolean reauth (String password) {
+		String hashedPassword = PasswordEncryption.hash (password);
+
+		return user.getPassword ().equals (hashedPassword);
 	}
 }

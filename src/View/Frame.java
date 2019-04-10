@@ -346,11 +346,11 @@ public class Frame extends javax.swing.JFrame {
 	}
 
 	private boolean isValidPassword (String pw) {
-		return pw.matches ("(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[\\W\\_]).{8,}");
+		return pw.matches ("(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[\\W\\_]).{8,20}");
 	}
 
 	private boolean isValidUsername (String user) {
-		return user.matches ("([A-Za-z0-9\\_\\.]){6,}");
+		return user.matches ("([A-Za-z0-9\\_\\.]){6,20}");
 	}
 
 	private boolean isExistingUser (String user) {

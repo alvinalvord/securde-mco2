@@ -177,7 +177,7 @@ public class SQLite {
     }
     
     public boolean addProduct(String name, int stock, double price) {
-        String sql = "INSERT INTO product(name,stock,price) VALUES('" + name + "','" + stock + "','" + price + "')";
+        String sql = "INSERT INTO product(name,stock,price) VALUES('" + name.toLowerCase () + "','" + stock + "','" + price + "')";
         boolean retval = false;
         try (Connection conn = DriverManager.getConnection(driverURL);
             Statement stmt = conn.createStatement()){
@@ -213,7 +213,7 @@ public class SQLite {
 //            System.exit (0);
 //        }
     }
-    
+
     public ArrayList<History> getHistory(){
         String sql = "SELECT id, username, name, stock, price, timestamp FROM history";
         ArrayList<History> histories = new ArrayList<History>();

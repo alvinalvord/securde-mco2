@@ -1,0 +1,15 @@
+2019-04-10	10:30:00:140	[data get]	--- login request was queried
+2019-04-10	10:30:00:144	[user login]	--- user admin accessed the system
+2019-04-10	10:30:05:215	[user logout]	--- user admin has logged out
+2019-04-10	10:30:24:928	[data get]	--- usernamehelloworld availability checked
+2019-04-10	10:30:24:948	[user add]	--- user helloworld added
+2019-04-10	10:30:40:715	[data get]	--- login request was queried
+2019-04-10	10:30:40:719	[user login]	--- user helloworld accessed the system
+2019-04-10	10:30:43:343	[user logout]	--- user helloworld has logged out
+2019-04-10	10:30:56:992	[data get]	--- login request was queried
+2019-04-10	10:30:56:996	[login error]	--- invalid user credentials
+2019-04-10	10:31:10:152	[data get]	--- login request was queried
+2019-04-10	10:31:10:155	[user login]	--- user helloworld accessed the system
+2019-04-10	10:31:12:319	[user logout]	--- user helloworld has logged out
+2019-04-10	10:31:19:656	[data get]	--- login request was queried
+2019-04-10	10:31:19:660	[user login]	--- user admin accessed the system

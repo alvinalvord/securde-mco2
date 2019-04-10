@@ -214,7 +214,6 @@ public class SQLite {
 //        }
     }
     
-    
     public ArrayList<History> getHistory(){
         String sql = "SELECT id, username, name, stock, price, timestamp FROM history";
         ArrayList<History> histories = new ArrayList<History>();
@@ -392,7 +391,8 @@ public class SQLite {
             stmt.execute (sql);
 
             Logger.log ("database update", "edited product " + product.getId ());
-            Logger.dblog ("databse update", Main.getInstance ().model.getUser ().getUsername (), "edited product "+ product.getId ());
+            Logger.dblog ("databse update", Main.getInstance ().model.getUser ().getUsername (), "edited product "+ product.getId () + " previous values stock: " + product.getStock () + ", price: " + product.getPrice () +
+                    ", name: " + product.getName ());
         } catch (SQLException e) {
             Logger.log ("database error", "unable to edit product " + product.getId ());
         }

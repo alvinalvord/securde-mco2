@@ -196,17 +196,19 @@ public class MgmtUser extends javax.swing.JPanel {
                 return;
             }
 
-            String[] options = {"1-DISABLED","2-CLIENT","3-STAFF","4-MANAGER","5-ADMIN"};
-            String[] actualoptions = new String[Main.getInstance ().model.getUser ().getRole () - 1];
-            for (int i = 0; i < actualoptions.length; i++) {
-                actualoptions[i] = options[i];
+            if ((int) tableModel.getValueAt (table.getSelectedRow (), 2) >= Main.getInstance ().model.getUser ()
+                    .getRole ()) {
+                JOptionPane.showMessageDialog (this, "Cannot set rank of user with same rank", "Rank error", JOptionPane.ERROR_MESSAGE);
+                return;
             }
-            JComboBox optionList = new JComboBox(actualoptions);
+
+            String[] options = {"1-DISABLED","2-CLIENT","3-STAFF","4-MANAGER","5-ADMIN"};
+            JComboBox optionList = new JComboBox(options);
             
-            optionList.setSelectedIndex(actualoptions.length - 1);
+            optionList.setSelectedIndex((int)tableModel.getValueAt(table.getSelectedRow(), 2) - 1);
             
             String result = (String) JOptionPane.showInputDialog(null, "USER: " + tableModel.getValueAt(table.getSelectedRow(), 0), 
-                "EDIT USER ROLE", JOptionPane.QUESTION_MESSAGE, null, actualoptions, actualoptions[actualoptions.length - 1]);
+                "EDIT USER ROLE", JOptionPane.QUESTION_MESSAGE, null, options, options[(int)tableModel.getValueAt(table.getSelectedRow(), 2) - 1]);
             
             if(result != null){
 //                System.out.println(tableModel.getValueAt(table.getSelectedRow(), 0));
@@ -226,6 +228,12 @@ public class MgmtUser extends javax.swing.JPanel {
             if (((String) tableModel.getValueAt(table.getSelectedRow(), 0)).equalsIgnoreCase (Main.getInstance ().model
                     .getUser ().getUsername ())) {
                 JOptionPane.showMessageDialog (this, "Cannot delete own account", "Delete error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            if ((int) tableModel.getValueAt (table.getSelectedRow (), 2) >= Main.getInstance ().model.getUser ()
+                    .getRole ()) {
+                JOptionPane.showMessageDialog (this, "Cannot delete user with same rank", "Rank error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
@@ -257,6 +265,12 @@ public class MgmtUser extends javax.swing.JPanel {
             if (((String) tableModel.getValueAt(table.getSelectedRow(), 0)).equalsIgnoreCase (Main.getInstance ().model
                     .getUser ().getUsername ())) {
                 JOptionPane.showMessageDialog (this, "Cannot lock own account", "lock error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            if ((int) tableModel.getValueAt (table.getSelectedRow (), 2) >= Main.getInstance ().model.getUser ()
+                    .getRole ()) {
+                JOptionPane.showMessageDialog (this, "Cannot lock user with same rank", "Rank error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 

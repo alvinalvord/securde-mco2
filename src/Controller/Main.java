@@ -37,41 +37,41 @@ public class Main {
         sqlite = new SQLite();
 
 //        // Create a database
-        sqlite.createNewDatabase();
+//        sqlite.createNewDatabase();
 //        
 //        // Drop users table if needed
-        sqlite.dropHistoryTable();
-        sqlite.dropLogsTable();
-        sqlite.dropProductTable();
-        sqlite.dropUserTable();
+//        sqlite.dropHistoryTable();
+//        sqlite.dropLogsTable();
+//        sqlite.dropProductTable();
+//        sqlite.dropUserTable();
 //        
 //        // Create users table if not exist
-        sqlite.createHistoryTable();
-        sqlite.createLogsTable();
-        sqlite.createProductTable();
-        sqlite.createUserTable();
+//        sqlite.createHistoryTable();
+//        sqlite.createLogsTable();
+//        sqlite.createProductTable();
+//        sqlite.createUserTable();
 //        
 //        // Add sample history
-        sqlite.addHistory("admin", "Antivirus", 1, 100.0f,"2019-04-03 14:30:00.000");
-        sqlite.addHistory("manager", "Firewall", 1, 100.0f, "2019-04-03 14:30:01.000");
-        sqlite.addHistory("staff", "Scanner", 1, 100.0f, "2019-04-03 14:30:02.000");
+//        sqlite.addHistory("admin", "Antivirus", 1, 100.0f,"2019-04-03 14:30:00.000");
+//        sqlite.addHistory("manager", "Firewall", 1, 100.0f, "2019-04-03 14:30:01.000");
+//        sqlite.addHistory("staff", "Scanner", 1, 100.0f, "2019-04-03 14:30:02.000");
 //        
 //        // Add sample logs
-        sqlite.addLogs("NOTICE", "admin", "User creation successful", new Timestamp(new Date().getTime()).toString());
-        sqlite.addLogs("NOTICE", "manager", "User creation successful", new Timestamp(new Date().getTime()).toString());
-        sqlite.addLogs("NOTICE", "admin", "User creation successful", new Timestamp(new Date().getTime()).toString());
+//        sqlite.addLogs("NOTICE", "admin", "User creation successful", new Timestamp(new Date().getTime()).toString());
+//        sqlite.addLogs("NOTICE", "manager", "User creation successful", new Timestamp(new Date().getTime()).toString());
+//        sqlite.addLogs("NOTICE", "admin", "User creation successful", new Timestamp(new Date().getTime()).toString());
 //        
 //        // Add sample product
-        sqlite.addProduct("Antivirus", 5, 500.0);
-        sqlite.addProduct("Firewall", 3, 1000.0);
-        sqlite.addProduct("Scanner", 10, 100.0);
+//        sqlite.addProduct("Antivirus", 5, 500.0);
+//        sqlite.addProduct("Firewall", 3, 1000.0);
+//        sqlite.addProduct("Scanner", 10, 100.0);
 //
 //        // Add sample users
-        sqlite.addUser("admin", "qwerty1234" , 5);
-        sqlite.addUser("manager", "qwerty1234", 4);
-        sqlite.addUser("staff", "qwerty1234", 3);
-        sqlite.addUser("client1", "qwerty1234", 2);
-        sqlite.addUser("client2", "qwerty1234", 2);
+//        sqlite.addUser("admin", "qwerty1234" , 5);
+//        sqlite.addUser("manager", "qwerty1234", 4);
+//        sqlite.addUser("staff", "qwerty1234", 3);
+//        sqlite.addUser("client1", "qwerty1234", 2);
+//        sqlite.addUser("client2", "qwerty1234", 2);
 //        
 //        
 //        // Get history
